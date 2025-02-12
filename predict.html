@@ -1,0 +1,182 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <style>
+    /* General Reset */
+body, h1, h2, p, div, form, table, tr, td {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Page Title */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #222;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Result Message Styling */
+p {
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Plot Container Styling */
+div.plot-container {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Form Styling */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+td[align="right"] {
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+}
+
+td[align="left"] {
+    text-align: left;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Result Display */
+div.main p {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+    <p>{{ result2 }}</p>
+
+    <div>
+        {{ plot_div1|safe }}
+    </div>
+
+    <div>
+        {{ plot_div2|safe }}
+    </div>
+
+    <div>
+        {{ plot_div3|safe }}
+    </div>
+
+    <div align="center" class="main">
+        <h1>Please enter the following information</h1>
+        <form action="result">
+            <table>
+                <tr>
+                    <td align="right">Air Temperature</td>
+                    <td align="left"><input type="text" name="n1"></td>
+                </tr>
+
+                <tr>
+                    <td align="right">Process Temperature</td>
+                    <td align="left"><input type="text" name="n2"></td>
+                </tr>
+
+                <tr>
+                    <td align="right">Rotational Speed</td>
+                    <td align="left"><input type="text" name="n3"></td>
+                </tr>
+
+                <tr>
+                    <td align="right">Torque</td>
+                    <td align="left"><input type="text" name="n4"></td>
+                </tr>
+
+                <tr>
+                    <td align="right">Tool Wear</td>
+                    <td align="left"><input type="text" name="n5"></td>
+                </tr>
+            </table>
+
+            <input type="submit">
+        </form>
+
+        Result:{{result2}}
+    </div>
+</body></html>
